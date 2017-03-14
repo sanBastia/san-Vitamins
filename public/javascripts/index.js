@@ -144,5 +144,26 @@ function htmlbodyHeightUpdate(){
 
 //MY OWN SCRIPT
 $("#getquotes").click(function(){
-    window.location.href="http://localhost:3000"
+
+    $.ajax({
+      url :"http://localhost:3000/quote",
+      type:"GET",
+      success : function(success){
+        if(success.data){
+          var table = `  <blockquote>"${success.data.quotes}"</blockquote>
+        <h4 style="color:#A9ABA6">${ success.data.author } </h4>
+        <h5><a href="${ success.data.wiki }">who is this ?</a></h5>`
+        }
+        if(success.data.author === "Anonymous"){
+          var table = `  <blockquote>"${success.data.quotes}"</blockquote>
+        <h4 style="color:#A9ABA6">${ success.data.author } </h4>
+        <h5>${ success.data.wiki }</h5>`
+        }
+        $("#main").html(table)
+      },
+      error : function(err){
+        console.log(err);
+      }
+    })
+
 })
