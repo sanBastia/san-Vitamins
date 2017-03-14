@@ -152,7 +152,7 @@ $("#getquotes").click(function(){
         if(success.data){
           var table = `  <blockquote>"${success.data.quotes}"</blockquote>
         <h4 style="color:#A9ABA6">${ success.data.author } </h4>
-        <h5><a href="${ success.data.wiki }">who is this ?</a></h5>`
+        <h5><a href="${ success.data.wiki }" target="_blank">who is this ?</a></h5>`
         }
         if(success.data.author === "Anonymous"){
           var table = `  <blockquote>"${success.data.quotes}"</blockquote>
