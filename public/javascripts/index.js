@@ -146,7 +146,7 @@ function htmlbodyHeightUpdate(){
 $("#getquotes").click(function(){
 
     $.ajax({
-      url :"http://localhost:3000/users/quote",
+      url :"http://localhost:3000/quote",
       type:"GET",
       success : function(success){
         if(success.data){
